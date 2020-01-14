@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+
+            function Myfunction() {
+                var Mylist_id = document.getElementById("Mylist");
+                var City_id = document.getElementById("City");
+                var li_tag = document.createElement('li');
+                var div_tag = document.createElement('div');
+
+                var text = City_id.options[City_id.selectedIndex].text;
+
+                li_tag.appendChild(document.createTextNode(text));
+                div_tag.appendChild(li_tag);
+                
+                Mylist_id.prepend(div_tag);
+            }
+
+            //자동완성
+
+            var Cityarray = ["Lax", "Oxnard", "Santamaria"];
+            var search_id = document.getElementById("search-bar");
+           $(function(){ 
+            $("#search-bar").autocomplete({
+                source: Cityarray,
+                select: function(event, ui) {
+                    console.log(ui.item);
+                },
+                focus: function(event, ui) {
+                    return false;
+                }
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <h1>Test</h1>
+        <p>
+            <select id="City">
+                <option>City</option>
+                <option value="LAX">LAX</option>
+                <option value="OX">Oxnard</option>
+                <option value="SM">Santamaria</option>
+            </select>
+            <select id="Category">
+                <option>Category</option>
+                <option value="Market">Market</option>
+                <option value="Bar">Bar</option>
+                <option value="Restaurant">Restaurant</option>
+            </select>
+            <!--<input type="text" id="search-bar">
+            <lable for="search-bar">Search</lable>
+            -->
+            <input type="text" id="search-bar">
+            <label for="search-bar">Search</label>
+        </p>
+        <div id="Mylist"></div>
+        <input type="button" id="bt1" onclick="Myfunction()" value="test">
+    
+    </body>
+</html>
