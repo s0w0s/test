@@ -20,19 +20,36 @@
 
             //자동완성
 
-            var Cityarray = ["Lax", "Oxnard", "Santamaria"];
-            var search_id = document.getElementById("search-bar");
-           $(function(){ 
-            $("#search-bar").autocomplete({
-                source: Cityarray,
-                select: function(event, ui) {
-                    console.log(ui.item);
-                },
-                focus: function(event, ui) {
-                    return false;
-                }
-            });
-        });
+           $(function() {
+            var availableTags = [
+                "ActionScript",
+                "AppleScript",
+                "Asp",
+                "BASIC",
+                "C",
+                "C++",
+                "Clojure",
+                "COBOL",
+                "ColdFusion",
+                "Erlang",
+                "Fortran",
+                "Groovy",
+                "Haskell",
+                "Java",
+                "JavaScript",
+                "Lisp",
+                "Perl",
+                "PHP",
+                "Python",
+                "Ruby",
+                "Scala",
+                "Scheme"
+                ];
+
+                $("#search-bar").autocomplete({
+                    source: availableTags
+                });
+           });
         </script>
     </head>
     <body>
